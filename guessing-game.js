@@ -5,17 +5,18 @@ function guessingGame() {
 
     return function guess(guess) {
         if (gameOver){
-            return "The Game is over, you can't guess anymore. Refresh your browser to play again"
+            return "The game is over, you already won!"
         }
 
         count++;
 
         if(guess === target){
-            return`You Win! You found ${guess} in ${count} guess${count === 1 ? '' : 'es'}.`;
+            gameOver = true;
+            return`You win! You found ${guess} in ${count} guess${count === 1 ? '' : 'es'}.`;
         } else if (guess > target){
-            return`${guess} is too high.`;
+            return`${guess} is too high!`;
         } else{
-            return`${guess} is too low.`;
+            return`${guess} is too low!`;
         }
     }
 
